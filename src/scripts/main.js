@@ -12,17 +12,91 @@ for (let currentNumber = 1; currentNumber <= 100; currentNumber++) {
     }
 }
 */
-
+// first try: one if block that goes from top to bottom
+/*
 for (let currentNumber = 1; currentNumber <= 100; currentNumber++) {
-        if (currentNumber % 5 === 0){
-            console.log("Chicken")
-        }  
-         
-        if (currentNumber % 7 === 0){
-            console.log("Monkey")
-        }  
-
-        if (currentNumber % 7 === 0||currentNumber % 5 === 0){
-            console.log("ChickMonkey")
-        }  
+    if (currentNumber % 5 === 0 && currentNumber % 7 === 0){
+        console.log("ChickenMonkey")
+    } else if (currentNumber % 5 === 0){
+        console.log("Chicken")
+    } else if (currentNumber % 7 === 0){
+        console.log("Monkey")
+    } else { 
+        console.log(currentNumber)
     }
+}
+*/
+
+
+// second try: nested if, if first if is true the it goes to the nested if block. if first if is false then goes to else.
+/*
+for (let currentNumber = 1; currentNumber <= 100; currentNumber++) {
+    if (currentNumber % 5 === 0 || currentNumber % 7 === 0){
+        if (currentNumber % 5 === 0 && currentNumber % 7 === 0){
+            console.log("ChickenMonkey")
+        } else if (currentNumber % 5 === 0){
+            console.log("Chicken")
+        } else {
+            console.log("Monkey")
+        }
+    } else { 
+        console.log(currentNumber)
+    }
+}
+*/
+
+// third try: 3 seperate if blocks. 3rd if is checking if nothing has been added to output which means it is not a multiple of  5 or 7.
+
+/*
+for (let currentNumber = 1; currentNumber <= 40; currentNumber++) {
+    let output = ""
+    if (currentNumber % 5 === 0) {
+        output += "Chicken"
+    }
+
+    if (currentNumber % 7 === 0) {
+        output += "Monkey"
+    }
+
+    if (output.length === 0){
+        output += currentNumber
+    }
+    console.log(output)
+}
+*/
+
+// forth try: 3 if blocks. 3rd block check if currentNumber is NOT a multiple of 5 AND NOT a multiple of 7.
+/*
+for (let currentNumber = 1; currentNumber <= 40; currentNumber++) {
+    let output = ""
+    if (currentNumber % 5 === 0) {
+        output += "Chicken"
+    }
+
+    if (currentNumber % 7 === 0) {
+        output += "Monkey"
+    }
+
+    if (!(currentNumber % 5 === 0) && !(currentNumber % 7 === 0)) {
+        output += currentNumber
+    }
+    console.log(output)
+}
+*/
+// fifth try: 3 if blocks. 3rd block checks if currentNumber is NOT a multiple of 5 or 7
+
+for (let currentNumber = 1; currentNumber <= 40; currentNumber++) {
+    let output = ""
+    if (currentNumber % 5 === 0) {
+        output += "Chicken"
+    }
+
+    if (currentNumber % 7 === 0) {
+        output += "Monkey"
+    }
+
+    if (!(currentNumber % 5 === 0 || currentNumber % 7 === 0)) {
+        output += currentNumber
+    }
+    console.log(output)
+}
